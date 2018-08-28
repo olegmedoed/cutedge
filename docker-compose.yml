@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+
+  back_web:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    command: ["yarn", "start:dev"]
+    env_file: ./back/.env
+    restart: on-failure
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    volumes:
+      - ./back/src:/app/src
+    ports:
+      - 3000:3000
+
+  mongo:
+    image: mongo:latest
