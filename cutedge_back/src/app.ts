@@ -3,7 +3,8 @@ import { FastifyInstance } from "fastify";
 import helmet = require("fastify-helmet");
 import mongo = require("fastify-mongodb");
 
-import firstService from "./services/first";
+import infoService from "./services/info";
+// import userService from "./services/user";
 
 const {
   NODE_ENV = "development",
@@ -20,12 +21,14 @@ const app: FastifyInstance = fastify({
 // ===== register =====
 //
 
-// register plugins
-app.register(helmet);
-app.register(mongo, {
-  url: MONGO_URL,
-});
-// register services
-app.register(firstService);
+console.log(app.register.toString());
+
+app
+  .register(helmet)
+  .register(mongo, {
+    url: MONGO_URL,
+  })
+  // .register(userService)
+  .register(infoService);
 
 export default app;

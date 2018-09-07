@@ -8,7 +8,7 @@
     "start:dev": "nodemon -r source-map-support/register dist/index.js"
   },
   "dependencies": {
-    "fastify": "^1.11.0",
+    "fastify": "^1.11.1",
     "fastify-cors": "^0.1.0",
     "fastify-helmet": "^2.1.0",
     "fastify-mongodb": "^0.9.0",

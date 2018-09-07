@@ -14,9 +14,9 @@ services:
     depends_on:
       - mongo
     volumes:
-      - ./back/src:/app/src
+      - "./back/src:/app/src"
     ports:
-      - 3000:3000
+      - "3000:3000"
 
   mongo:
     image: mongo:latest

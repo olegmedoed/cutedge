@@ -1,12 +1,6 @@
-import { FastifyInstance } from "fastify";
-import { MongoClient } from "mongodb";
+import { App } from "../types";
 
-export default async function createFirstService(
-  app: FastifyInstance & { mongo: MongoClient },
-  _opts: any
-) {
-  const db = app.mongo.db("cutedge");
-
+export default async function createFirstService(app: App, __opts: any) {
   app.route({
     url: "/",
     method: "GET",
@@ -25,8 +19,16 @@ export default async function createFirstService(
         },
       },
     },
-    handler() {
-      return db.collection("users").findOne({ name: "Oleg Tsyba" });
+    async handler(_request, reply) {
+      reply.header("Set-Cookie", "some=thing; path=/");
+
+      return {
+        name: "Oleg Tsyba",
+        age: "27",
+        skills: ["armwrestler", "programmer"],
+      };
     },
   });
+
+  return app
 }
