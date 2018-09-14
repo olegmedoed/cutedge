@@ -4,10 +4,10 @@ services:
 
   back_web:
     build:
-      context: ./back
+      context: ./cutedge_back
       dockerfile: Dockerfile
     command: ["yarn", "start:dev"]
-    env_file: ./back/.env
+    env_file: ./cutedge_back/.env
     restart: on-failure
     links:
       - mongo
