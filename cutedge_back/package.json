@@ -8,15 +8,15 @@
     "start:dev": "nodemon -r source-map-support/register dist/index.js"
   },
   "dependencies": {
-    "fastify": "^1.11.1",
+    "fastify": "^1.11.2",
     "fastify-cors": "^0.1.0",
     "fastify-helmet": "^2.1.0",
     "fastify-mongodb": "^0.9.0",
     "fastify-plugin": "^1.2.0",
-    "mongodb": "^3.1.4"
+    "mongodb": "^3.1.6"
   },
   "devDependencies": {
-    "@types/mongodb": "^3.1.4",
+    "@types/mongodb": "^3.1.7",
     "@types/node": "^10.9.3",
     "nodemon": "^1.18.3",
     "prettier": "^1.14.2",
