@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "watch": "tsc -w",
-    "start:dev": "nodemon -r source-map-support/register dist/index.js"
+    "start:dev": "tsc -w & nodemon -r source-map-support/register dist/index.js"
   },
   "dependencies": {
     "fastify": "^1.11.2",

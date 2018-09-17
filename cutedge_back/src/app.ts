@@ -6,7 +6,7 @@ import mongo = require("fastify-mongodb");
 import config from "./config";
 
 import infoService from "./services/info";
-// import userService from "./services/user";
+import userService from "./services/user";
 
 const app: FastifyInstance = fastify({
   logger: {
@@ -25,7 +25,7 @@ app
   .register(mongo, {
     url: config.mongo_url,
   })
-  // .register(userService)
+  .register(userService)
   .register(infoService);
 
 export default app;

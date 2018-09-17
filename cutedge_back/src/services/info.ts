@@ -1,6 +1,6 @@
 import { App } from "../types";
 
-export default async function createFirstService(app: App, __opts: any) {
+export default async function createFirstService(app: App, __opts: any, next: Function) {
   app.route({
     url: "/",
     method: "GET",
@@ -30,5 +30,5 @@ export default async function createFirstService(app: App, __opts: any) {
     },
   });
 
-  return app
+  next();
 }

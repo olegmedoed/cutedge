@@ -1,47 +1,47 @@
 import UserController from "./user.controller";
 import { App } from "../../types";
+import * as userSchema from "../../schemas/user";
+import * as commonSchema from "../../schemas/common";
+import { getParamsSchema } from "../../schemas/common";
 
-export default function UserService(app: App, _opts: any) {
+export default function UserService(app: App, _opts: any, next: Function) {
   const userController = new UserController(app);
 
   app.route({
-    url: "/user",
+    url: "/users",
     method: "POST",
     schema: {
-      body: {
-        type: "object",
-        properties: {
-          email: { type: "string" },
-          password: { type: "string" },
-        },
-      },
+      body: userSchema.createUserBody,
       response: {
-        201: {
-          type: "object",
-          properties: {
-            data: {
-              type: "object",
-              properties: {
-                email: { type: "string" },
-              },
-            },
-          },
-        },
-        400: {
-          type: "object",
-          properties: {
-            error: {
-              type: "object",
-              properties: {
-                message: "string",
-              },
-            },
-          },
-        },
+        201: userSchema.createUserResponse,
+        400: commonSchema.errorSchema,
       },
     },
-    handler: userController.create
+    handler: userController.create,
   });
 
-  return app;
+  app.route({
+    url: "/users/:id",
+    method: "GET",
+    schema: {
+      params: getParamsSchema(["id"]),
+      response: {
+        200: userSchema.findUserResponse,
+        400: commonSchema.errorSchema,
+      },
+    },
+    handler: userController.find,
+  });
+
+  app.route({
+    url: "/users/:id",
+    method: "PATCH",
+    schema: {
+      params: getParamsSchema(["id"]),
+      body: userSchema.updateUserBody,
+    },
+    handler: userController.update,
+  });
+
+  next();
 }

@@ -14,7 +14,7 @@ services:
     depends_on:
       - mongo
     volumes:
-      - "./back/src:/app/src"
+      - "./cutedge_back/src:/app/src"
     ports:
       - "3000:3000"
 

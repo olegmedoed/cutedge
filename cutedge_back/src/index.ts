@@ -1,12 +1,11 @@
+import config from "./config";
 import app from "./app";
-
-const { PORT = "3000", HOST = "0.0.0.0" } = process.env;
 
 start().catch(handleError);
 
 async function start() {
-  await app.listen(parseInt(PORT), HOST);
-  app.log.info(`Server start on port: ${PORT} and host ${HOST}`);
+  await app.listen(config.port, config.host);
+  app.log.info(`Server start on port: ${config.port} and host ${config.host}`);
 }
 
 function handleError(err: Error) {
