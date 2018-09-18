@@ -20,9 +20,13 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^10.9.3":
+"@types/node@*":
   version "10.9.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.4.tgz#0f4cb2dc7c1de6096055357f70179043c33e9897"
+
+"@types/node@^10.10.1":
+  version "10.10.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.10.1.tgz#d5c96ca246a418404914d180b7fdd625ad18eca6"
 
 "@types/pino@^4.16.0":
   version "4.16.1"
@@ -511,6 +515,13 @@ fast-safe-stringify@^1.0.8, fast-safe-stringify@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-1.2.3.tgz#9fe22c37fb2f7f86f06b8f004377dbf8f1ee7bc1"
 
+fastify-auth@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-auth/-/fastify-auth-0.3.0.tgz#51dd3bb6fddfac476ef9795cd977106258d6dc39"
+  dependencies:
+    fastify-plugin "^1.0.0"
+    reusify "^1.0.4"
+
 fastify-cors@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/fastify-cors/-/fastify-cors-0.1.0.tgz#58b04b056eb42a3d4ef7f916f376016ca9088c7f"
@@ -546,6 +557,12 @@ fastify-mongodb@^0.9.0:
 fastify-plugin@^1.0.0, fastify-plugin@^1.0.1, fastify-plugin@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.2.0.tgz#b87274ad9d14e41efcd3240c64f5dee4c39b2154"
+  dependencies:
+    semver "^5.5.0"
+
+fastify-plugin@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.2.1.tgz#77bd6c517de0096bf26deb28d1b7c87080c1ba59"
   dependencies:
     semver "^5.5.0"
 
@@ -1508,7 +1525,7 @@ ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
 
-reusify@^1.0.0, reusify@^1.0.2:
+reusify@^1.0.0, reusify@^1.0.2, reusify@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
 
