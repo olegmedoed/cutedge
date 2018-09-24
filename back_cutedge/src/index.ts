@@ -1,4 +1,4 @@
-import config from "./config";
+import * as config from "./config";
 import app from "./app";
 
 start().catch(handleError);
@@ -9,6 +9,6 @@ async function start() {
 }
 
 function handleError(err: Error) {
-  app.log.error("ERROR: ", err);
+  console.error(err);
   process.exit(1);
 }

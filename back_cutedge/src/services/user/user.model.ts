@@ -2,16 +2,16 @@ import * as crypto from "crypto";
 import { promisify } from "util";
 import * as mongodb from "mongodb";
 
+import * as config from "../../config";
 import { App } from "../../types";
-import config from "../../config";
 
 const pbkdf2 = promisify(crypto.pbkdf2);
 
 export default class UserModel {
   private users: mongodb.Collection;
 
-  constructor(app: App) {
-    this.users = app.mongo.db.collection("users");
+  constructor(private app: App) {
+    this.users = this.app.mongo.db.collection("users");
   }
 
   async create(userData: { email: string; password: string }) {
